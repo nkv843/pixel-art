@@ -1,0 +1,36 @@
+.form {
+  display: flex;
+}
+
+.input {
+  padding: 15px;
+  font-weight: 400;
+  font-size: 14px;
+  width: 600px;
+  color: #333333;
+  border: 1px solid #B0B0B0;
+  outline: none;
+}
+
+.submit {
+  transform: translateX(-10px);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 13px 35px;
+  background-color: #9873FF;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 19px;
+  color: #FFFFFF;
+  transition: background-color .2s linear, transform .1s linear ;
+}
+
+.submit:hover, .submit:focus {
+  background-color: #d373ff
+}
+
+.submit:active {
+  transform: translateX(0px);
+}

@@ -1,2 +1,1 @@
-import WeatherTable from './WeatherTable.jsx';
-export default WeatherTable
+export {default} from './WeatherTable.jsx';

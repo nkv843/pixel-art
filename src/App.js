@@ -20,8 +20,6 @@ const App = () => {
           <WeatherTable />
         </div>
       }
-
-
     </div>
   );
 }

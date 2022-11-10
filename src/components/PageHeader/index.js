@@ -1,2 +1,1 @@
-import PageHeader from './PageHeader.jsx';
-export default PageHeader
+export {default} from './PageHeader.jsx';

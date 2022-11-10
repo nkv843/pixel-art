@@ -1,2 +1,1 @@
-import SearchForm from './SearchForm.jsx';
-export default SearchForm
+export {default} from './SearchForm.jsx';

@@ -13,9 +13,11 @@
   width: 444px;
   padding: 22px;
 }
+
 .popup::-webkit-scrollbar {
   width: 0;
 }
+
 .background {
   background: rgba(0, 0, 0, .48);
   position: fixed;
@@ -25,6 +27,7 @@
   top: 0;
   left: 0;
 }
+
 .close {
   cursor: pointer;
   border: none;
@@ -37,6 +40,7 @@
   height: 16px;
   background: url('../../img/popupClose.svg');
 }
+
 .title {
   display: inline;
   position: relative;
@@ -47,6 +51,7 @@
   color: #333333;
   margin-bottom: 11px ;
 }
+
 .descr {
   font-weight: 400;
   font-size: 14px;
@@ -91,6 +96,7 @@
   color: #333333;
   align-self: center;
 }
+
 .status {
   align-self: center;
   margin-top: -15px;

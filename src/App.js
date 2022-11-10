@@ -1,8 +1,8 @@
 import React from 'react';
-import SearchForm from './components/SearchForm';
+import SearchForm from './features/SearchForm';
 import Popup from './components/Popup/Popup';
 import PageHeader from './components/PageHeader';
-import WeatherItem from './components/WeatherItem';
+import WeatherTable from './features/WeatherTable';
 import classNames from './App.module.css'
 
 
@@ -17,7 +17,7 @@ const App = () => {
           <PageHeader>
             <SearchForm/>
           </PageHeader>
-          <WeatherItem/>
+          <WeatherTable />
         </div>
       }
 

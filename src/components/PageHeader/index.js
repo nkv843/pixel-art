@@ -1,1 +1,2 @@
-export {default} from './PageHeader.jsx';
+// eslint-disable-next-line no-restricted-exports
+export { default } from './PageHeader';

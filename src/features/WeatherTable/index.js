@@ -1,1 +1,2 @@
-export {default} from './WeatherTable.jsx';
+/* eslint-disable no-restricted-exports */
+export { default } from './WeatherTable';

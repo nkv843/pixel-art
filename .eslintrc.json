@@ -16,8 +16,19 @@
         "sourceType": "module"
     },
     "plugins": [
-        "react"
+        "react",
+        "prefer-arrow-functions"
     ],
     "rules": {
+      "react/function-component-definition": 0,
+      "prefer-arrow-functions/prefer-arrow-functions": [
+        "warn",
+        {
+          "classPropertiesAllowed": false,
+          "disallowPrototype": false,
+          "returnStyle": "unchanged",
+          "singleReturnOnly": false
+        }
+      ]
     }
 }

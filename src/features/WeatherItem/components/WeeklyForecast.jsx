@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import classNames from '../WeatherTable.module.css';
+import classNames from '../WeatherItem.module.css';
 import ForecastItem from './ForecastItem';
 
-function WeeklyForecast({ resp }) {
+const WeeklyForecast = ({ resp }) => {
   const weeklyForecast = [];
   for (let i = 1; i < 7; i += 1) {
     const dayMax = resp
@@ -17,6 +17,6 @@ function WeeklyForecast({ resp }) {
       {weeklyForecast.map((item) => <ForecastItem key={item.index} temp={item.temp2m} title={`${item.dateTime.getDate()} ${item.month}`} img={item.weather.img} />)}
     </div>
   );
-}
+};
 
 export default WeeklyForecast;

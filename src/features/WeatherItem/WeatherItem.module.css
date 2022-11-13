@@ -7,6 +7,7 @@
 }
 
 .item {
+  color: rgb(65, 45, 88);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -36,10 +37,17 @@
 
 .item__header {
   display: flex;
+  padding: 0 10px 10px;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid rgba(65, 45, 88, .5);
+}
+
+.item__location {
+  font-size: 25px;
+  font-weight: 600;
+  max-width: 30%;
 }
 
 .item__icon {
@@ -58,12 +66,19 @@
 
 .item__currentCondition * {
   padding-left: 30px;
-  background: no-repeat center left ;
+  text-align: left;
+  background-position: center left;
+  background-repeat: no-repeat;
   background-size: contain;
+}
+
+.item__wind {
+  padding-left: 0;
 }
 
 .item__windSpeed {
   background-image: url('../../img/wind-speed.svg');
+  margin-bottom: 10px;
 }
 
 .item__windDirection {
@@ -148,8 +163,4 @@
   top: 10%;
   width: 0;
   border-right: 1px solid rgba(65, 45, 88, .5);;
-}
-
-.forecast__itemIcon {
-  width: 100%;
 }

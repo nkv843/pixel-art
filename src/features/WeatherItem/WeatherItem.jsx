@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import classNames from './WeatherTable.module.css';
+import classNames from './WeatherItem.module.css';
 import CurrentConditionFooter from './components/CurrentConditionFooter';
 import DailyForecast from './components/DailyForecast';
 import CurrentConditionHeader from './components/CurrentConditionHeader';
@@ -8,7 +8,7 @@ import WeeklyForecast from './components/WeeklyForecast';
 import FavoriteButton from './components/FavoriteButton';
 import prettifyWeatherData from './utils';
 
-function WeatherTable({ weather }) {
+const WeatherItem = ({ weather }) => {
   const { currentWeather, formattedWeather } = prettifyWeatherData(weather);
 
   return (
@@ -37,6 +37,6 @@ function WeatherTable({ weather }) {
       <FavoriteButton />
     </div>
   );
-}
+};
 
-export default WeatherTable;
+export default WeatherItem;

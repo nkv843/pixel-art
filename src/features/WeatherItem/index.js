@@ -1,2 +1,2 @@
 /* eslint-disable no-restricted-exports */
-export { default } from './WeatherTable';
+export { default } from './WeatherItem';

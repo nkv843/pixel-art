@@ -1,7 +1,6 @@
-/* eslint-disable import/named */
 import weatherModifiers from './constants';
 
-export default function prettifyWeatherData(weather) {
+export default (weather) => {
   const { init } = weather;
   const initDateTimeStamp = new Date(`${init.slice(0, 4)}-${init.slice(4, 6)}-${init.slice(6, 8)}`).getTime(); // UTC-0
   const millisecInHour = 36e+5;
@@ -13,6 +12,7 @@ export default function prettifyWeatherData(weather) {
   const timepointNow = (new Date(Date.now())).getHours() + timeShiftUTC;
   // in location of search
   const dateTimeNow = new Date(Date.now() + timeShiftUTC * millisecInHour);
+  const minutesNow = dateTimeNow.getMinutes().toString().length === 1 ? `0${dateTimeNow.getMinutes()}` : dateTimeNow.getMinutes();
   const formattedWeather = weather.dataseries.map((item) => {
     const timepoint = Number(weather.init.substring(8, 10)) + item.timepoint + localTimeZone;
     const dateTime = new Date(initDateTimeStamp + timepoint * millisecInHour);
@@ -27,13 +27,15 @@ export default function prettifyWeatherData(weather) {
       weather: weatherModifiers.weather[item.weather],
     };
   });
-  // eslint-disable-next-line max-len
-  const nearestToNow = formattedWeather.reduce((p, c) => (Math.abs(p.dateTime - dateTimeNow) < Math.abs(c.dateTime - dateTimeNow) ? p : c));
+  const nearestToNow = formattedWeather.reduce((p, c) => {
+    if (Math.abs(p.dateTime - dateTimeNow) < Math.abs(c.dateTime - dateTimeNow)) return p;
+    return c;
+  });
   const currentWeather = {
     ...nearestToNow,
     timepoint: timepointNow,
     dateTime: dateTimeNow,
-    time: `${dateTimeNow.getHours()}:${dateTimeNow.getMinutes()}`,
+    time: `${dateTimeNow.getHours()}:${minutesNow}`,
   };
   return { formattedWeather, currentWeather };
-}
+};

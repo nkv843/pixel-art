@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import classNames from './SearchForm.module.css';
 
-function SearchForm({ create }) {
+const SearchForm = ({ create }) => {
   const [location, setLocation] = useState('');
 
   const handleSubmit = async (e) => {
@@ -23,6 +23,6 @@ function SearchForm({ create }) {
       <button type="submit" className={classNames.submit}>Answer!</button>
     </form>
   );
-}
+};
 
 export default SearchForm;

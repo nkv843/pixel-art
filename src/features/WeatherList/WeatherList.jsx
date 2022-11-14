@@ -1,13 +1,11 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import WeatherTable from '../WeatherTable';
+import WeatherItem from '../WeatherItem';
 
-function WeatherList({ weathers }) {
-  return (
-    <div>
-      {weathers.map((weather) => <WeatherTable weather={weather} key={weather.id} />)}
-    </div>
-  );
-}
+const WeatherList = ({ weathers }) => (
+  <div>
+    {weathers.map((weather) => <WeatherItem weather={weather} key={weather.id} />)}
+  </div>
+);
 
 export default WeatherList;

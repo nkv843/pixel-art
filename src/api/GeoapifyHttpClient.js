@@ -14,7 +14,7 @@ export class GeoapifyHttpClient {
     const response = await fetch(fetchURL);
     const localData = (await response.json()).features[0].properties;
     const timezone = localData.timezone.offset_STD_seconds / 3600;
-    const address = `${localData.address_line1}, ${localData.address_line2}`;
+    const address = `${localData.city}, ${localData.country}`;
     const latitude = localData.lat;
     const longitude = localData.lon;
     return ({

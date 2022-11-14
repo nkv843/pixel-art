@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../WeatherItem.module.css';
 
 const celciusDegree = ' °C';
@@ -17,5 +17,13 @@ const CurrentConditionHeader = ({
     <div className={classNames.item__descr}>{description}</div>
   </div>
 );
+
+CurrentConditionHeader.propTypes = {
+  location: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  temp: PropTypes.number.isRequired,
+  img: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};
 
 export default CurrentConditionHeader;

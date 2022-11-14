@@ -1,8 +1,8 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from './PageHeader.module.css';
 
-const PageHeader = ({ children, loading }) => (
+const PageHeader = ({ loading, children }) => (
   <header className={classNames.header}>
     <div className={classNames.container}>
       <div className={classNames.logo} />
@@ -14,5 +14,15 @@ const PageHeader = ({ children, loading }) => (
     </div>
   </header>
 );
+
+PageHeader.propTypes = {
+  loading: PropTypes.bool,
+  children: PropTypes.element,
+};
+
+PageHeader.defaultProps = {
+  loading: false,
+  children: '',
+};
 
 export default PageHeader;

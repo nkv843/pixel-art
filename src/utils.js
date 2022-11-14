@@ -27,15 +27,34 @@ export default (weather) => {
       weather: weatherModifiers.weather[item.weather],
     };
   });
+
   const nearestToNow = formattedWeather.reduce((p, c) => {
     if (Math.abs(p.dateTime - dateTimeNow) < Math.abs(c.dateTime - dateTimeNow)) return p;
     return c;
   });
+
   const currentWeather = {
     ...nearestToNow,
     timepoint: timepointNow,
     dateTime: dateTimeNow,
     time: `${dateTimeNow.getHours()}:${minutesNow}`,
   };
-  return { formattedWeather, currentWeather };
+
+  const weeklyForecast = [];
+  for (let i = 1; i < 7; i += 1) {
+    const dayMax = formattedWeather
+      .filter((item) => item.dateTime.getDate() === (new Date()).getDate() + i)
+      .reduce((prev, curr) => (prev.temp2m > curr.temp2m ? prev : curr));
+    weeklyForecast.push(dayMax);
+  }
+
+  const dailyForecast = formattedWeather.splice(nearestToNow.index - 1, 8);
+
+  return {
+    id: weather.id,
+    address: weather.address,
+    currentWeather,
+    dailyForecast,
+    weeklyForecast,
+  };
 };

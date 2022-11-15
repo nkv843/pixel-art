@@ -1,22 +1,35 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../WeatherItem.module.css';
 import ForecastItem from './ForecastItem';
 
-const WeeklyForecast = ({ resp }) => {
-  const weeklyForecast = [];
-  for (let i = 1; i < 7; i += 1) {
-    const dayMax = resp
-      .filter((item) => item.dateTime.getDate() === (new Date()).getDate() + i)
-      .reduce((prev, curr) => (prev.temp2m > curr.temp2m ? prev : curr));
-    weeklyForecast.push(dayMax);
-  }
+const WeeklyForecast = ({ forecast }) => (
+  <div className={`${classNames.item__weeklyForecast} ${classNames.weeklyForecast}`}>
+    {forecast.map((item) => <ForecastItem key={item.index} temp={item.temp2m} title={`${item.dateTime.getDate()} ${item.month}`} img={item.weather.img} />)}
+  </div>
+);
 
-  return (
-    <div className={`${classNames.item__weeklyForecast} ${classNames.weeklyForecast}`}>
-      {weeklyForecast.map((item) => <ForecastItem key={item.index} temp={item.temp2m} title={`${item.dateTime.getDate()} ${item.month}`} img={item.weather.img} />)}
-    </div>
-  );
+WeeklyForecast.propTypes = {
+  forecast: PropTypes.arrayOf(PropTypes.shape({
+    timepoint: PropTypes.number,
+    lifted_index: PropTypes.number,
+    prec_amount: PropTypes.number,
+    temp2m: PropTypes.number,
+    index: PropTypes.number,
+    cloudcover: PropTypes.string,
+    prec_type: PropTypes.string,
+    rh2m: PropTypes.string,
+    month: PropTypes.string,
+    dateTime: PropTypes.instanceOf(Date),
+    wind10m: PropTypes.shape({
+      direction: PropTypes.string,
+      speed: PropTypes.string,
+    }),
+    weather: PropTypes.shape({
+      img: PropTypes.string,
+      description: PropTypes.string,
+    }),
+  })).isRequired,
 };
 
 export default WeeklyForecast;

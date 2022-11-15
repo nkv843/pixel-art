@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from '../WeatherItem.module.css';
 
 const ForecastItem = ({ title, temp, img }) => (
@@ -13,5 +13,11 @@ const ForecastItem = ({ title, temp, img }) => (
     </p>
   </div>
 );
+
+ForecastItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  temp: PropTypes.number.isRequired,
+  img: PropTypes.string.isRequired,
+};
 
 export default ForecastItem;

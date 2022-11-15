@@ -1,21 +1,21 @@
-/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import classNames from './SearchForm.module.css';
 
-const SearchForm = ({ create }) => {
-  const [location, setLocation] = useState('');
+const SearchForm = ({ onSearch }) => {
+  const [request, setRequest] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    create(location);
-    setLocation('');
+    onSearch(request);
+    setRequest('');
   };
 
   return (
     <form onSubmit={handleSubmit} className={classNames.form}>
       <input
-        value={location}
-        onChange={(e) => setLocation(e.target.value)}
+        value={request}
+        onChange={(e) => setRequest(e.target.value)}
         className={classNames.input}
         placeholder="Some place"
         type="text"
@@ -23,6 +23,10 @@ const SearchForm = ({ create }) => {
       <button type="submit" className={classNames.submit}>Answer!</button>
     </form>
   );
+};
+
+SearchForm.propTypes = {
+  onSearch: PropTypes.func.isRequired,
 };
 
 export default SearchForm;

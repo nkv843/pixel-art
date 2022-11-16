@@ -1,7 +1,8 @@
 {
     "env": {
         "browser": true,
-        "es2021": true
+        "es2021": true,
+        "jest": true
     },
     "extends": [
         "plugin:react/recommended",
@@ -17,7 +18,8 @@
     },
     "plugins": [
         "react",
-        "prefer-arrow-functions"
+        "prefer-arrow-functions",
+        "testing-library"
     ],
     "rules": {
       "react/function-component-definition": 0,

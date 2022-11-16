@@ -22,6 +22,7 @@ const useSearchWeather = () => {
       };
       const formattedWeather = prettifyWeatherData(newWeather);
       setWeathers([formattedWeather, ...weathers]);
+      setError(null);
     } catch (e) {
       setError(`${e.name}: ${e.message}`);
     } finally {

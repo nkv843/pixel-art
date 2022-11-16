@@ -9,7 +9,7 @@ const PageHeader = ({ loading, children }) => (
       <h1 className={classNames.title}>WTWT in</h1>
       <div>{children}</div>
       {loading
-        ? <h1 className={classNames.loading}>Loading</h1>
+        ? <h1 className={classNames.loading} data-testid="loading">Loading</h1>
         : null}
     </div>
   </header>
@@ -17,12 +17,12 @@ const PageHeader = ({ loading, children }) => (
 
 PageHeader.propTypes = {
   loading: PropTypes.bool,
-  children: PropTypes.element,
+  children: PropTypes.shape(),
 };
 
 PageHeader.defaultProps = {
   loading: false,
-  children: '',
+  children: null,
 };
 
 export default PageHeader;

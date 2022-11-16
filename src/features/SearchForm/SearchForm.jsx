@@ -14,13 +14,15 @@ const SearchForm = ({ onSearch }) => {
   return (
     <form onSubmit={handleSubmit} className={classNames.form}>
       <input
+        name="searchInput"
         value={request}
         onChange={(e) => setRequest(e.target.value)}
         className={classNames.input}
         placeholder="Some place"
         type="text"
+        data-testid="searchInput"
       />
-      <button type="submit" className={classNames.submit}>Answer!</button>
+      <button data-testid="searchSubmit" type="submit" className={classNames.submit}>Answer!</button>
     </form>
   );
 };

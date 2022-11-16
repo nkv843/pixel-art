@@ -4,18 +4,29 @@ import PageHeader from './components/PageHeader';
 import WeatherList from './features/WeatherList';
 import classNames from './App.module.css';
 import useSearchWeather from './hooks/useSearchWeather';
+import ErrorMessage from './components/ErrorMessage';
 
 const App = () => {
   const [execute, { loading, error, weathers }] = useSearchWeather();
 
+  if (weathers.length) {
+    return (
+      <div className={classNames.app}>
+        <PageHeader loading={loading}>
+          <SearchForm onSearch={execute} />
+        </PageHeader>
+        {error && <ErrorMessage error={error} />}
+        <WeatherList weathers={weathers} />
+      </div>
+    );
+  }
   return (
     <div className={classNames.app}>
       <PageHeader loading={loading}>
         <SearchForm onSearch={execute} />
       </PageHeader>
-      {error && <h1 className={classNames.plug}>{error}</h1>}
-      {weathers.length
-        ? <WeatherList weathers={weathers} />
+      {error
+        ? <ErrorMessage error={error} />
         : <h1 className={classNames.plug}>Let&apos;s start explore</h1>}
     </div>
   );

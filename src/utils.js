@@ -23,7 +23,8 @@ export default (weather) => {
       wind10m: { ...item.wind10m, speed: weatherModifiers.windSpeed[item.wind10m.speed] },
       timepoint,
       dateTime,
-      month: weatherModifiers.monthNames[dateTime.getMonth()],
+      time: `${dateTime.getHours()}:00`,
+      date: `${dateTime.getDate()} ${weatherModifiers.monthNames[dateTime.getMonth()]}`,
       weather: weatherModifiers.weather[item.weather],
     };
   });

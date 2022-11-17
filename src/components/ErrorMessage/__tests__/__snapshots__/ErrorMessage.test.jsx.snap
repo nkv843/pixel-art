@@ -13,7 +13,7 @@ exports[`ErrorMessage should match snapshot 1`] = `
       <span>
         ⚒️
       </span>
-      Error: Ooooooops!
+      Error: oops
     </div>
   </div>
 </body>

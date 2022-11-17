@@ -12,7 +12,8 @@ export class GeoapifyHttpClient {
   async getDataByName(name) {
     const fetchURL = `${this.baseURL}${COORDINATE_ENDPOINT}${new URLSearchParams({ apiKey: this.apiKey, text: name })}`;
     const response = await fetch(fetchURL);
-    const localData = (await response.json()).features[0].properties;
+    const localData = (await response.json())?.features[0]?.properties;
+    if (!localData) throw new Error("Please try again, we can't find this settlement");
     const timezone = localData.timezone.offset_STD_seconds / 3600;
     const address = `${localData.city}, ${localData.country}`;
     const latitude = localData.lat;
@@ -25,7 +26,8 @@ export class GeoapifyHttpClient {
   async getDataByCoords(longitude, latitude) {
     const fetchURL = `${this.baseURL}${LOCALITY_ENDPOINT}${new URLSearchParams({ apiKey: this.apiKey, lat: latitude, lon: longitude })}`;
     const response = await fetch(fetchURL);
-    const localData = (await response.json()).features[0].properties;
+    const localData = (await response.json())?.features[0]?.properties;
+    if (!localData) throw new Error("Please try again, we can't find this settlement");
     const timezone = localData.timezone.offset_STD_seconds / 3600;
     const address = `${localData.city}, ${localData.country}`;
     return ({ timezone, address });

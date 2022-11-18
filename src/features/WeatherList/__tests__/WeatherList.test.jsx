@@ -653,9 +653,7 @@ const weathers =  [
 
 describe('WeatherList', () => {
   const { baseElement } = render(<WeatherList weathers={ weathers } />)
-
   it('should match snapshot', () => {
     expect(baseElement).toMatchSnapshot()
   });
-
 });

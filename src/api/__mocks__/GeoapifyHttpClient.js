@@ -4,12 +4,12 @@ export const mockGetDataByName = jest.fn().mockRejectedValue();
 export const mockgetDataByCoords = jest.fn().mockRejectedValue();
 
 export class MockGeoapifyHttpClient {
-  async getDataByName() {
-    return mockGetDataByName;
+  async getDataByName(name) {
+    return mockGetDataByName(name);
   }
 
-  async getDataByCoords() {
-    return mockgetDataByCoords;
+  async getDataByCoords(longitude, latitude) {
+    return mockgetDataByCoords(longitude, latitude);
   }
 }
 

@@ -27,7 +27,7 @@ const App = () => {
       </PageHeader>
       {error
         ? <ErrorMessage error={error} />
-        : <h1 className={classNames.plug}>Let&apos;s start explore</h1>}
+        : <h1 className={classNames.title}>Let&apos;s start explore</h1>}
     </div>
   );
 };

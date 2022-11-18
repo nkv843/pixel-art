@@ -3,15 +3,13 @@ import React from 'react';
 import SearchForm from '../SearchForm';
 
 describe('SearchForm', () => {
-  const handleClick = jest.fn();
-  const { getByTestId } = render(<SearchForm onSearch={handleClick} />);
-  const input = getByTestId('searchInput');
-  const btn = getByTestId('searchSubmit');
-
+  const mockHandleClick = jest.fn();
   it('should handle submit with correct value of request ', () => {
+    const { getByTestId } = render(<SearchForm onSearch={mockHandleClick} />);
+    const input = getByTestId('searchInput');
+    const btn = getByTestId('searchSubmit');
     fireEvent.change(input, { target: { value: 'moscow' } });
     fireEvent.click(btn);
-    expect(handleClick).toHaveBeenCalledWith('moscow');
+    expect(mockHandleClick).toHaveBeenCalledWith('moscow');
   });
-
 });

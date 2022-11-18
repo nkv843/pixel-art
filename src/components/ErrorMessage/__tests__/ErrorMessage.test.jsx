@@ -3,18 +3,8 @@ import React from 'react';
 import ErrorMessage from '../ErrorMessage';
 
 describe('ErrorMessage', () => {
-  let error;
-
-  try {
-    throw new Error('Ooooooops!');
-  } catch (e) {
-    error = `${e.name}: ${e.message}`;
-  }
-
-  const { baseElement } = render(<ErrorMessage error={ error }/>)
-
   it('should match snapshot', () => {
+    const { baseElement } = render(<ErrorMessage error={ 'Error: oops' }/>)
     expect(baseElement).toMatchSnapshot()
   });
-
 });

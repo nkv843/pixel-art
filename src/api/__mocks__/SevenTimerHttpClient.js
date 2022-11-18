@@ -1,12 +1,9 @@
-const mockGetWeatherData = jest.fn().mockRejectedValue();
+/* eslint-disable class-methods-use-this */
+export const mockGetWeatherData = jest.fn().mockRejectedValue();
 
 export class MockSevenTimerHttpClient {
-  constructor(getReturn) {
-    this.getReturn = getReturn;
-  }
-
-  async getWeatherData() {
-    return this.nameReturn;
+  async getWeatherData(longitude, latitude) {
+    return mockGetWeatherData(longitude, latitude);
   }
 }
 

@@ -4,7 +4,7 @@ import ErrorMessage from '../ErrorMessage';
 
 describe('ErrorMessage', () => {
   it('should match snapshot', () => {
-    const { baseElement } = render(<ErrorMessage error={ 'Error: oops' }/>)
-    expect(baseElement).toMatchSnapshot()
+    const { baseElement } = render(<ErrorMessage error="Error: oops" />);
+    expect(baseElement).toMatchSnapshot();
   });
 });

@@ -9,12 +9,21 @@ const useSearchWeather = () => {
   const execute = async (location) => {
     setLoading(true);
     try {
-      if (!location.length) throw new Error("You don't even type anything!");
-      if (!location.trim()) throw new Error('Too many spaces!');
-      if (Number(location)) throw new Error('This is a phone nubmer, not a city!');
+      if (!location.length) {
+        throw new Error("You don't even type anything!");
+      }
+      if (!location.trim()) {
+        throw new Error('Too many spaces!');
+      }
+      if (Number(location)) {
+        throw new Error('This is a phone nubmer, not a city!');
+      }
       const {
         address, timezone, latitude, longitude,
       } = await geoapifyClient.getDataByName(location);
+      if (!address) {
+        throw new Error("Please try again, we can't find this settlement");
+      }
       const weatherData = await sevenTimerClient.getWeatherData(longitude, latitude);
       const newWeather = {
         ...weatherData,

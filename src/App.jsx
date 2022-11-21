@@ -8,7 +8,6 @@ import ErrorMessage from './components/ErrorMessage';
 
 const App = () => {
   const [execute, { loading, error, weathers }] = useSearchWeather();
-
   if (weathers.length) {
     return (
       <div className={classNames.app}>

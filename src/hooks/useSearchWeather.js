@@ -6,7 +6,6 @@ const useSearchWeather = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [weathers, setWeathers] = useState([]);
-
   const execute = async (location) => {
     setLoading(true);
     try {
@@ -24,7 +23,7 @@ const useSearchWeather = () => {
         timezone,
       };
       const formattedWeather = prettifyWeatherData(newWeather);
-      setWeathers([formattedWeather, ...weathers]);
+      setWeathers((prevState) => [formattedWeather, ...prevState]);
       setError(null);
     } catch (e) {
       setError(`${e.name}: ${e.message}`);

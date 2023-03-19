@@ -6,6 +6,13 @@ import { depthFirstSearch } from '../../utils';
 export const PixelGrid = () => {
   const [context, setContext] = useContext(Context);
 
+  /**
+ * Update the color of the specified cell and its adjacent cells (if applicable).
+ * @param {Object} param - The cell's row and column.
+ * @param {number} param.row - The row of the cell.
+ * @param {number} param.column - The column of the cell.
+ * @returns {Array} The updated grid.
+ */
   const updateGrid = useCallback(({ row, column }) => {
     const {
       grid, color, size, affectAdjacent,

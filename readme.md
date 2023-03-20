@@ -30,7 +30,7 @@ The following components must be installed locally:
 To run the project locally in the development mode, enter the following in the command line / bash:
 
 ```console
-$ git clone <linktorepository>
+$ git clone <https://github.com/nkv843/pixel-art>
 $ cd <repositoryname>
 $ npm install
 $ npm start
